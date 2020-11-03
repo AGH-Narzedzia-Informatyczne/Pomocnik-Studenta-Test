@@ -11,4 +11,7 @@ Aplikacja z wbudowanym:
 
 W następnych etapach:
 * kontroler wydatków
-* porównywarka cen (np. najtańsze **piwko**)
+* porównywarka cen (np. najtańsze **piwko** :+1:)
+
+# Język 
+Głównie Python, sam interfejs do ustalenia.
