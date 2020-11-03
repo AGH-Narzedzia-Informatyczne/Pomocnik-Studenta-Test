@@ -2,7 +2,7 @@
 
 _Projekt dla wszystkich studentów, którzy potrzebują lekkiej pomocy przy organizacji studiów, szczególnie tych zdalnych_
 
-## Główny cel
+## Główne cele
 
 Aplikacja z wbudowanym:
 * kalendarzem
@@ -11,4 +11,4 @@ Aplikacja z wbudowanym:
 
 W następnych etapach:
 * kontroler wydatków
-* porównywarka cen (np. najtańsze piwko)
+* porównywarka cen (np. najtańsze **piwko**)
