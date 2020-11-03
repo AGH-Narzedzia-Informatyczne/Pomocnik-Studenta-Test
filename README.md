@@ -6,7 +6,7 @@ _Projekt dla wszystkich studentów, którzy potrzebują lekkiej pomocy przy orga
 
 Aplikacja z wbudowanym:
 * kalendarzem
-* organizerem zajęć(wraz z podręcznymi linkami)
+* organizerem zajęć (wraz z podręcznymi linkami)
 * dziennikiem z ocenami
 
 W następnych etapach:
