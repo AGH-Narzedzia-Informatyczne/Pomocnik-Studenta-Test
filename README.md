@@ -27,3 +27,7 @@ Głównie Python, sam interfejs do ustalenia.
 
 - dcymerys
 * https://gist.github.com/dcymerys/e77d6853cdbc84ae5b19a4f99ba29cb3
+
+- bartekf4
+* [Gist 1](https://gist.github.com/bartekf4/a97682cc1a82ba3ede1171701c60c4a2)
+* [Gist 2](https://gist.github.com/bartekf4/067dbd829f78934ff8a35c46f18ea052)
