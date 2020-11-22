@@ -20,4 +20,6 @@ Głównie Python, sam interfejs do ustalenia.
 # Gist's
 - Szymszon
 * https://gist.github.com/szymszon/ef7caca07d1cf99656ed23df266588e3
-* .
+
+- kuballa
+* https://gist.github.com/kuballa/cfee0a64fafd727f8ed1e25259af31e3
