@@ -15,3 +15,7 @@ W następnych etapach:
 
 # Język 
 Głównie Python, sam interfejs do ustalenia.
+
+
+#Gist's
+https://gist.github.com/szymszon/ef7caca07d1cf99656ed23df266588e3
