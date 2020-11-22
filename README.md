@@ -24,3 +24,6 @@ Głównie Python, sam interfejs do ustalenia.
 
 - kuballa
 * https://gist.github.com/kuballa/cfee0a64fafd727f8ed1e25259af31e3
+
+- dcymerys
+* https://gist.github.com/dcymerys/e77d6853cdbc84ae5b19a4f99ba29cb3
