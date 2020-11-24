@@ -21,7 +21,9 @@ class neural_network:
 neural_network = neural_network()
 
 # The training set
-inputs = array([[2, 13], [2, 6], [1, 8], [12, 3]])
+
+inputs = array([[2, 3], [1, 1], [5, 2], [12, 3]])
+
 outputs = array([[10, 4, 14, 30]]).T
 
 # Training the neural network using the training set.
