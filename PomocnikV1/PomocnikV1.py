@@ -18,25 +18,49 @@ class CalendarWindow(Screen):
     def __init__(self, **kwargs):
         super(CalendarWindow, self).__init__(**kwargs)
         for i in range(7):
-            self.button = Button(text=str(i+1), size_hint=(0.1, 0.15), pos_hint={'x': 0.10 + (i/10), 'y': 0.80})
+            self.button = Button(text=str(i+1), size_hint=(0.1, 0.15), pos_hint={'x': 0.15 + (i/10), 'y': 0.75})
             self.add_widget(self.button)
         for i in range(7):
-            self.button = Button(text=str(i+8), size_hint=(0.1, 0.15), pos_hint={'x': 0.10 + (i/10), 'y': 0.65})
+            self.button = Button(text=str(i+8), size_hint=(0.1, 0.15), pos_hint={'x': 0.15 + (i/10), 'y': 0.60})
             self.add_widget(self.button)
         for i in range(7):
-            self.button = Button(text=str(i+15), size_hint=(0.1, 0.15), pos_hint={'x': 0.10 + (i/10), 'y': 0.50})
+            self.button = Button(text=str(i+15), size_hint=(0.1, 0.15), pos_hint={'x': 0.15 + (i/10), 'y': 0.45})
             self.add_widget(self.button)
         for i in range(7):
-            self.button = Button(text=str(i+22), size_hint=(0.1, 0.15), pos_hint={'x': 0.10 + (i/10), 'y': 0.35})
+            self.button = Button(text=str(i+22), size_hint=(0.1, 0.15), pos_hint={'x': 0.15 + (i/10), 'y': 0.30})
             self.add_widget(self.button)
+
+        self.pn = Label(text="Poniedzialek", font_size = 15, pos_hint={'center_x': 0.2, 'center_y': 0.92} )
+        self.wt = Label(text="Wtorek", font_size = 15, pos_hint={'center_x': 0.3, 'center_y': 0.92} )
+        self.sr = Label(text="Sroda", font_size = 15, pos_hint={'center_x': 0.4, 'center_y': 0.92} )
+        self.cz = Label(text="Czwartek", font_size = 15, pos_hint={'center_x': 0.5, 'center_y': 0.92} )
+        self.pt = Label(text="Piatek", font_size = 15, pos_hint={'center_x': 0.6, 'center_y': 0.92} )
+        self.sb = Label(text="Sobota", font_size = 15, pos_hint={'center_x': 0.7, 'center_y': 0.92} )
+        self.nd = Label(text="Niedziela", font_size = 15, pos_hint={'center_x': 0.8, 'center_y': 0.92} )
+
+        self.add_widget(self.pn)
+        self.add_widget(self.wt)
+        self.add_widget(self.sr)
+        self.add_widget(self.cz)
+        self.add_widget(self.pt)
+        self.add_widget(self.sb)
+        self.add_widget(self.nd)
+
+
 
 class GradesWindow(Screen, FloatLayout,GridLayout):
-    def __init__(self, **kwargs):
-        super(GradesWindow, self).__init__(**kwargs)
+    pass
 
-        self.lbl = Label(text="Wprowadz fraze, ktora chcesz wyszukac:", font_size = 20, pos_hint={'center_x': 0.5, 'center_y': 0.9} )
+class SpendingsWindow(Screen):
+    pass
+
+class ComparisonWindow(Screen, GridLayout):
+    def __init__(self, **kwargs):
+        super(ComparisonWindow, self).__init__(**kwargs)
+
+        self.lbl = Label(text="Wprowadź frazę, ktorą chcesz wyszukać:", font_size = 20, pos_hint={'center_x': 0.5, 'center_y': 0.9} )
         self.add_widget(self.lbl)
-        self.btn = Button(text="Szukaj", size_hint=(.1, .05), pos_hint={'center_x': 0.5, 'center_y': 0.62})
+        self.btn = Button(text="Szukaj", size_hint=(.1, .05), pos_hint={'center_x': 0.5, 'center_y': 0.62}, background_color = (0, 0, 0, 1))
         self.btn.bind(on_press=self.pressed)
         self.add_widget(self.btn)
         self.txt = TextInput(font_size = 20, size_hint_y = None, height = 80, width = 100,  pos_hint={'center_x': 0.5, 'center_y': 0.75})
@@ -61,18 +85,6 @@ class GradesWindow(Screen, FloatLayout,GridLayout):
             print("Cena:" + cena)
             print("Link:" + link + "\n")
 
-class SpendingsWindow(Screen):
-    pass
-
-class ComparisonWindow(Screen, GridLayout):
-    def __init__(self, **kwargs):
-        super(ComparisonWindow, self).__init__(**kwargs)
-        self.submit = Button(text="Wyszukaj", font_size=40)
-        self.submit.bind(on_press=self.pressed)
-
-
-    def pressed(self, instance):
-        print("dziala")
 
 class MainWindow(Screen):
     pass

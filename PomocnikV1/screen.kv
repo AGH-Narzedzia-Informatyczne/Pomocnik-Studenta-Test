@@ -10,13 +10,19 @@
 
 <MainWindow>:
     name: "main"
-
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.65, 0.25, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
     GridLayout:
         cols: 1
         Label:
             text: "Witaj w Pomocniku Studenta!"
-            font_size: 50
-
+            font_size: 55
+            bold: True
+            color:
         GridLayout:
             cols: 4
 
@@ -25,28 +31,37 @@
                 on_release:
                     app.root.current = "calendar"
                     root.manager.transition.direction = "left"
+                background_color: (0.41, 0.37, 0.87, 1)
 
             Button:
                 text: "Dziennik z ocenami"
                 on_release:
                     app.root.current = "grades"
                     root.manager.transition.direction = "left"
+                background_color: (0.41, 0.37, 0.87, 1)
 
             Button:
                 text: "Kontroler wydatków"
-                background_color: 0.2, 0.1, 0.7, 1
                 on_release:
                     app.root.current = "spendings"
                     root.manager.transition.direction = "left"
+                background_color: (0.41, 0.37, 0.87, 1)
 
             Button:
                 text: "Porównywarka cen"
                 on_release:
                     app.root.current = "comparison"
                     root.manager.transition.direction = "left"
+                background_color: (0.41, 0.37, 0.87, 1)
 
 
 <CalendarWindow>:
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.65, 0.25, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
     name: "calendar"
     GridLayout:
         cols:1
@@ -61,52 +76,61 @@
             size: self.texture_size
         GridLayout:
             cols: 7
-            Label:
-                text: "Poniedzialek"
-            Label:
-                text: "Wtorek"
-            Label:
-                text: "Sroda"
-            Label:
-                text: "Czwartek"
-            Label:
-                text: "Piatek"
-            Label:
-                text: "Sobota"
-            Label:
-                text: "Niedziela"
+
 
         Button:
             text: "Wróć do menu"
+            background_color: 0, 0, 0, 1
             size_hint: 1, 0.1
             on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 
 <GradesWindow>:
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.65, 0.25, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
     name: "grades"
     Button:
         text: "Wróć do menu"
         size_hint: 1, 0.1
+        background_color: 0, 0, 0, 1
         on_release:
             app.root.current = "main"
             root.manager.transition.direction = "right"
 
 <SpendingsWindow>:
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.65, 0.25, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
     name: "spendings"
     Button:
         text: "Wróć do menu"
+        background_color: 0, 0, 0, 1
         size_hint: 1, 0.1
         on_release:
             app.root.current = "main"
             root.manager.transition.direction = "right"
 
 <ComparisonWindow>:
+    canvas.before:
+        Color:
+            rgba: 0.9, 0.65, 0.25, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
     name: "comparison"
     GridLayout
     Button:
         text: "Wróć do menu"
         size_hint: 1, 0.1
+        background_color: 0, 0, 0, 1
         on_release:
             app.root.current = "main"
             root.manager.transition.direction = "right"
