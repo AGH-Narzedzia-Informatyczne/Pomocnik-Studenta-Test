@@ -5,6 +5,10 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.label import Label
+from kivy.uix.scrollview import ScrollView
+from kivy.base import runTouchApp
+from kivy.uix.dropdown import DropDown
+
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -12,6 +16,10 @@ from selenium.webdriver.common.keys import Keys
 chromedriver = r"C:\Users\Szymek\Downloads\chromedriver"
 chrome_options = Options();
 chrome_options.add_argument("--headless")
+
+
+dictionary = {}
+przedmioty = []
 
 
 class CalendarWindow(Screen):
@@ -45,11 +53,75 @@ class CalendarWindow(Screen):
         self.add_widget(self.pt)
         self.add_widget(self.sb)
         self.add_widget(self.nd)
-
-
-
+        
+        
 class GradesWindow(Screen, FloatLayout,GridLayout):
-    pass
+
+    def __init__(self, **kwargs):
+        super(GradesWindow, self).__init__(**kwargs)
+        self.dropdown = DropDown()
+
+
+
+        self.lbl = Label(text="Dzienniczek ocen", font_size=30, pos_hint={'center_x': 0.5, 'center_y': 0.95})
+        self.add_widget(self.lbl)
+
+        self.przedmiot = Label(text="Dodaj przedmiot", font_size=15, pos_hint={'center_x': 0.1, 'center_y': 0.85})
+        self.add_widget(self.przedmiot)
+        self.txt_przedmiot = TextInput(font_size=15, size_hint=(.15, .05), pos_hint={'center_x': 0.25, 'center_y': 0.85})
+        self.add_widget(self.txt_przedmiot)
+        self.btn_przedmiot = Button(text="Dodaj ", size_hint=(.1, .05), pos_hint={'center_x': 0.25, 'center_y': 0.79})
+        self.btn_przedmiot.bind(on_press=self.pressed_add_przedmiot)
+        self.add_widget(self.btn_przedmiot)
+
+
+        self.ocena = Label(text="Dodaj ocene", font_size=15, pos_hint={'center_x': 0.6, 'center_y': 0.85})
+        self.add_widget(self.ocena)
+        self.txt_ocena = TextInput(font_size=15, size_hint=(.15, .05), pos_hint={'center_x': 0.73, 'center_y': 0.85})
+        self.add_widget(self.txt_ocena)
+        self.btn_ocena = Button(text="Dodaj ", size_hint=(.1, .05), pos_hint={'center_x': 0.75, 'center_y': 0.79})
+        self.btn_ocena.bind(on_press=self.pressed_add_ocene)
+        self.add_widget(self.btn_ocena)
+
+
+        self.mainbutton = Button(text="Przedmioty",size_hint=(.13, .05),pos_hint={'center_x': 0.88, 'center_y': 0.85})
+        self.mainbutton.bind(on_release=self.dropdown.open)
+        self.dropdown.bind(on_select=lambda instance, x: setattr(self.mainbutton, 'text', x))
+        self.add_widget(self.mainbutton)
+
+
+
+    def pressed_add_przedmiot(self, instance):
+        dictionary.update({str(self.txt_przedmiot.text):[]*0})
+        przedmioty.append(self.txt_przedmiot.text)
+        print(dictionary)
+        self.btn = Button(text='%s' % self.txt_przedmiot.text, size_hint_y=None, height=20)
+        self.btn.bind(on_release=lambda btn: self.dropdown.select(btn.text))
+        self.dropdown.add_widget(self.btn)
+        self.printGrades()
+
+
+
+    def pressed_add_ocene(self, instance):
+        self.ocena = int(self.txt_ocena.text)
+        dictionary[str(self.mainbutton.text)].append(self.ocena)
+        print(dictionary)
+
+        self.printGrades()
+
+
+
+
+    def printGrades(self):
+        j = 0
+        for i in przedmioty:
+            print(i)
+            self.lbl1 = Label(text=str(i), size_hint=(.3, .05),font_size=15, pos_hint={'center_x': 0.3, 'center_y': 0.66 - j / 10.5})
+            self.add_widget(self.lbl1)
+            self.lbl2 = Button(text=str(dictionary[i]), size_hint=(.3, .05),font_size=13, pos_hint={'center_x': 0.6, 'center_y': 0.66 - j / 10.5})
+            self.add_widget(self.lbl2)
+            j +=1
+
 
 class SpendingsWindow(Screen):
     pass
@@ -85,18 +157,15 @@ class ComparisonWindow(Screen, GridLayout):
             print("Cena:" + cena)
             print("Link:" + link + "\n")
 
-
 class MainWindow(Screen):
     pass
 
 class WindowManager(ScreenManager):
     pass
 
-
 class ScreenApp(App):
     def build(self):
         return WindowManager()
-
 
 if __name__ == '__main__':
     ScreenApp().run()
